@@ -27,7 +27,7 @@ public class LastName {
         //リストに"山田"が含まれているか判定（含まれる：true , 含まれない：false)
         System.out.println(lastNames.contains("山田"));
 
-        //苗字のランキングを作成
+        //苗字とその人口のマップを作成
         Map<String, String> lastNamesPopulation = new HashMap<>();
         lastNamesPopulation.put("佐藤", "約185万人");
         lastNamesPopulation.put("鈴木", "約178万人");
@@ -44,6 +44,15 @@ public class LastName {
         for(String key : lastNamesPopulation.keySet()){
             String value = lastNamesPopulation.get(key);
             System.out.println(key + "の人口は" + value);
+        }
+
+        //例外を発生させる
+        int index = 10;
+
+        try {
+            System.out.println(lastNames.get(index));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("配列の範囲を超えています。");
         }
 
     }
