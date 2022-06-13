@@ -20,8 +20,8 @@ public class LastName {
 
         //リストの数と内容を出力
         System.out.println(lastNames.size());
-        for(String s : lastNames){
-            System.out.println(s);
+        for(String lastName : lastNames){
+            System.out.println(lastName);
         }
 
         //リストに"山田"が含まれているか判定（含まれる：true , 含まれない：false)
@@ -55,5 +55,11 @@ public class LastName {
             System.out.println("配列の範囲を超えています。");
         }
 
+        //Streamを使った処理（ラムダ式）　苗字に"藤"が含まれる要素を出力
+        List<String> result = lastNames.stream().filter(lastName -> lastName.contains("藤")).toList();
+        System.out.println(result);
+
+        //メソッド参照を使ってListの要素を出力
+        lastNames.forEach(System.out::println);
     }
 }
