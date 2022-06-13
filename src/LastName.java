@@ -20,14 +20,14 @@ public class LastName {
 
         //リストの数と内容を出力
         System.out.println(lastNames.size());
-        for(String s : lastNames){
-            System.out.println(s);
+        for(String lastName : lastNames){
+            System.out.println(lastName);
         }
 
         //リストに"山田"が含まれているか判定（含まれる：true , 含まれない：false)
         System.out.println(lastNames.contains("山田"));
 
-        //苗字のランキングを作成
+        //苗字とその人口のマップを作成
         Map<String, String> lastNamesPopulation = new HashMap<>();
         lastNamesPopulation.put("佐藤", "約185万人");
         lastNamesPopulation.put("鈴木", "約178万人");
@@ -46,5 +46,20 @@ public class LastName {
             System.out.println(key + "の人口は" + value);
         }
 
+        //例外を発生させる
+        int index = 10;
+
+        try {
+            System.out.println(lastNames.get(index));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("配列の範囲を超えています。");
+        }
+
+        //Streamを使った処理（ラムダ式）　苗字に"藤"が含まれる要素を出力
+        List<String> result = lastNames.stream().filter(lastName -> lastName.contains("藤")).toList();
+        System.out.println(result);
+
+        //メソッド参照を使ってListの要素を出力
+        lastNames.forEach(System.out::println);
     }
 }
